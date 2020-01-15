@@ -65,19 +65,7 @@ namespace SWCP
 
 	struct Vertex
 	{
-		enum Type
-		{
-			Undefined = 0,
-			Soma,
-			Axon,
-			Dendrite,
-			ApicalDendrite,
-			ForkPoint,
-			EndPoint,
-			Custom,
-		};
-
-		Vertex(int64_t id, Type type, double x, double y, double z, float radius) : id(id), type(type), radius(radius), x(x), y(y), z(z), visited(false)
+		Vertex(int64_t id, int type, double x, double y, double z, float radius) : id(id), type(type), radius(radius), x(x), y(y), z(z), visited(false)
 		{};
 		
 		Vertex() {};
@@ -87,7 +75,7 @@ namespace SWCP
 		double y;
 		double z;
 		float radius;
-		Type type;
+		int type;
 		bool visited;
 	};
 		
@@ -292,7 +280,7 @@ namespace SWCP
 								int64_t parent;
 								if (AcceptInteger(parent))
 								{
-									graph.vertices.push_back(Vertex(id, static_cast<Vertex::Type>(type), x, y, z, static_cast<float>(r)));
+									graph.vertices.push_back(Vertex(id, type, x, y, z, static_cast<float>(r)));
 
 									if (parent != -1)
 									{

@@ -280,7 +280,7 @@ namespace SWCP
 								int64_t parent;
 								if (AcceptInteger(parent))
 								{
-									graph.vertices.push_back(Vertex(id, type, x, y, z, static_cast<float>(r)));
+									graph.vertices.push_back(Vertex(id, static_cast<int>(type), x, y, z, static_cast<float>(r)));
 
 									if (parent != -1)
 									{
